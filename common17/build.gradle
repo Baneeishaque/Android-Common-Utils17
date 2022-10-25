@@ -2,6 +2,8 @@ apply plugin: 'com.android.library'
 
 android {
 
+    namespace 'ndk.utils_android17'
+
     compileSdkVersion 31
     buildToolsVersion '30.0.3'
 
