@@ -42,16 +42,13 @@ RUN yes | android-sdk-linux/cmdline-tools/latest/bin/sdkmanager --licenses \
 
 ENV ANDROID_SDK_ROOT="$HOME/android-sdk-linux"
 
-RUN sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0 \
- && sudo apt-add-repository https://cli.github.com/packages \
+RUN type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y) \
+ && curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+ && sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+ && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
  && sudo apt update \
  && sudo apt install -y \
-    gh \
- && sudo rm -rf /var/lib/apt/lists/*
-
-RUN sudo apt-get update \
- && sudo apt-get install -y \
-     zsh \
+     gh zsh \
  && sudo rm -rf /var/lib/apt/lists/*
 
 RUN cd $HOME \
