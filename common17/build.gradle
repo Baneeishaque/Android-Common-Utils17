@@ -4,12 +4,12 @@ android {
 
     namespace 'ndk.utils_android17'
 
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
 
         minSdkVersion 17
-        targetSdkVersion 33
+        targetSdkVersion 34
 
         versionCode 1
         versionName "1.0"
