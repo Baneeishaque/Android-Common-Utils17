@@ -5,6 +5,3 @@ project(':Utils14:common14').projectDir = new File(settingsDir, './Utils16/Utils
 
 include ':Resources:common'
 project(':Resources:common').projectDir = new File(settingsDir, './Utils16/Utils14/Resources/common')
-
-include ':Utils1:common1'
-project(':Utils1:common1').projectDir = new File(settingsDir, './Utils16/Utils14/Utils11/Utils9/Utils7/Utils4/Utils3/Utils1/common1')
